@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ma bibliothèque</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="page">
+  <h2>Création d'un nouvel album</h2>
+  <button ion-button (click)="onGoToCreate()">Création</button>
+  <h2>Liste de mes musiques</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let musique of musiques">
+        <ion-list (click)="onGoToMusique(musique.data.album, musique.id)">
+          <div>
+            <ion-item>
+              <img [src]="musique.data.image" [alt]="musique.album">
+            </ion-item>
+            <ion-item>
+              {{musique.data.album}}
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

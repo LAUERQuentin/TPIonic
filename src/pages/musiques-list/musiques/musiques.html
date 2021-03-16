@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{album}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="page">
+  <div *ngIf="modif; then content else otherContent"></div>
+  <ng-template #content>
+    Modifiable
+  </ng-template>
+  <ng-template #otherContent>
+    <button ion-button (click)="onGoAccessModif()">Rendre Modifiable</button>
+
+    <ion-grid *ngIf="musique">
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button (click)="onGoDelete()">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <img [src]="musique.data.image" [alt]="musique.data.album">
+        </ion-col>
+        <ion-col col-6>
+          <strong>Album :</strong> <br>
+          {{musique.data.album}} <br>
+          <strong>Artiste :</strong><br>
+          {{musique.data.artiste}} <br>
+          <strong>Nombre de musique :</strong> <br>
+          {{musique.data.nb_musique}} <br>
+          <strong>Nombre de vente :</strong> <br>
+          {{musique.data.nb_vente}} <br>
+          <strong>Style :</strong> <br>
+          {{musique.data.style}} <br>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <strong>Résumé :</strong>
+          <p class="text-justify">
+            testtesttest
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+  <ng-template #content>
+    <ion-item>
+      <ion-label>Affiche</ion-label>
+      <ion-input type="text" [(ngModel)]="musique.data.image"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Album</ion-label>
+      <ion-input type="text" [(ngModel)]="musique.data.album"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Artiste</ion-label>
+      <ion-input type="text" [(ngModel)]="musique.data.artiste"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre de musique</ion-label>
+      <ion-input type="number" [(ngModel)]="musique.data.nb_musique"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre de vente</ion-label>
+      <ion-input type="number" [(ngModel)]="musique.data.nb_vente"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Style</ion-label>
+      <ion-input type="text" [(ngModel)]="musique.data.style"></ion-input>
+    </ion-item>
+    <div class="text-center">
+      <button ion-button (click)="onModif()">Modifier</button>
+    </div>  
+  </ng-template>
+</ion-content>
