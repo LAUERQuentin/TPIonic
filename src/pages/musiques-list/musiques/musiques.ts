@@ -29,6 +29,7 @@ export class MusiquesPage implements OnInit {
     private Toast: ToastController
     ) {
   }
+  
   ngOnInit(): void {
     this.album = this.navParams.get('album');
     this.id = this.navParams.get('id');

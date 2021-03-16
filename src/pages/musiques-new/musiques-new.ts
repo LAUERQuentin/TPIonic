@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MusiqueProvider } from '../../../providers/musique/musique';
+import { MusiqueProvider } from '../../providers/musique/musique';
 
 /**
  * Generated class for the MusiquesNewPage page.
