@@ -12,10 +12,10 @@ import { TabPageModule } from '../pages/tab/tab.module';
 import { MusiqueProvider } from '../providers/musique/musique';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { MusiquesNewPageModule } from '../pages/musiques-new/musiques-new.module';
 import { Camera } from '@ionic-native/camera';
 import { PhotosPageModule } from '../pages/photos/photos.module';
 import { MusiquesPageModule } from '../pages/musiques-list/musiques/musiques.module';
+import { MusiquesNewPageModule } from '../pages/musiques-list/musiques-new/musiques-new.module';
 
 
 const firebase = {

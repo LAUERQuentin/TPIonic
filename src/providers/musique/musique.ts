@@ -24,12 +24,22 @@ export class MusiqueProvider {
     this.musiqueSubject.next(this.musiques.slice());
   }
 
+  /**
+   * Return one music by its Id from database
+   * @param id 
+   * @returns 
+   */
   getMusiqueById(id : string){
     for (const musique of this.musiques) {
       if (musique.id == id) return musique;
     }
   }
 
+  /**
+   * Allows to save new music
+   * @param musique 
+   * @returns 
+   */
   saveNewMusique(musique: any){
     return new Observable(obs => {
       this.db.collection('musique').add(musique).then(() => {
@@ -39,6 +49,10 @@ export class MusiqueProvider {
     })
   }
 
+  /**
+   * Get all songs from database
+   * @returns 
+   */
   getAllMusiques() {
     return this.db.collection('musique').snapshotChanges().pipe(
       map((changes : any) => {
@@ -55,6 +69,9 @@ export class MusiqueProvider {
     })
   }
 
+  /**
+   * Update music in database
+   */
   update(musique: any, id: string){
     console.log(id);
     return new Observable(obs => {
@@ -63,6 +80,10 @@ export class MusiqueProvider {
     })
   }
 
+  /**
+   * Delete music in database
+   * @param id 
+   */
   delete(id: any){
     this.db.doc(`musique/${id}`).delete();
   }

@@ -30,15 +30,22 @@ export class MusiquesPage implements OnInit {
     ) {
   }
   
+  /**
+   * Allows to retrieve albums from the database
+   */
   ngOnInit(): void {
     this.album = this.navParams.get('album');
     this.id = this.navParams.get('id');
-    this.musique = this.Musique.getMusiqueById(this.id)  }
+    this.musique = this.Musique.getMusiqueById(this.id)  
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MusiquesPage');
   }
 
+  /**
+   * Call function for update musique in database
+   */
   onModif(){
     this.Musique.update(this.musique.data, this.musique.id).subscribe(()=>{
       const toast = this.Toast.create({
@@ -50,6 +57,9 @@ export class MusiquesPage implements OnInit {
     })
   }
 
+  /**
+   * Make alert for the update
+   */
   onGoAccessModif(){
     let alert = this.alertCtrl.create({
       title:"Etes-vous sur de vouloir modifier ?",
@@ -70,6 +80,9 @@ export class MusiquesPage implements OnInit {
     alert.present();
   }
 
+  /**
+   * Call function for delete musique in database
+   */
   onGoDelete(){
     this.Musique.delete(this.musique.id);
     this.navCtrl.pop()

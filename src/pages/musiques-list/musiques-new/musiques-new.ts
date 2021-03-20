@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MusiqueProvider } from '../../providers/musique/musique';
+import { MusiqueProvider } from '../../../providers/musique/musique';
 
 /**
  * Generated class for the MusiquesNewPage page.
@@ -36,6 +36,9 @@ export class MusiquesNewPage {
     console.log('ionViewDidLoad MusiquesNewPage');
   }
 
+  /**
+   * Call function for create new musique in database
+   */
   onAdd(){
     this.Musique.saveNewMusique(this.musique).subscribe(() => {
       this.musique = {

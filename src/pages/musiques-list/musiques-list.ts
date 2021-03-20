@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Subscription } from 'rxjs';
 import { MusiqueProvider } from '../../providers/musique/musique';
-import { MusiquesNewPage } from '../musiques-new/musiques-new';
+import { MusiquesNewPage } from './musiques-new/musiques-new';
 import { MusiquesPage } from './musiques/musiques';
 
 /**
@@ -34,11 +34,17 @@ export class MusiquesListPage implements OnInit {
     })
   }
 
+  /**
+   * Allows redirection to music creation
+   */
   onGoToCreate()
   {
     this.navCtrl.push(MusiquesNewPage); 
   }
 
+  /**
+   * Allows redirection to music detail
+   */
   onGoToMusique(musiqueAlbum:string, id:number)
   {
     this.navCtrl.push(MusiquesPage, {album: musiqueAlbum, id: id}); 

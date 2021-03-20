@@ -34,6 +34,9 @@ export class PhotosPage {
     ) {
   }
 
+  /**
+   * Take photo on press picture button
+   */
   onPicture(){
     this.Camera.getPicture(this.options).then((data)=> {
       if(data) this.imageUrl = normalizeUrl(data);
