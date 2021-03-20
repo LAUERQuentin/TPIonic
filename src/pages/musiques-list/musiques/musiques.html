@@ -11,7 +11,6 @@
   </ng-template>
   <ng-template #otherContent>
     <button ion-button (click)="onGoAccessModif()">Rendre Modifiable</button>
-
     <ion-grid *ngIf="musique">
       <ion-row>
         <ion-col col-6>
@@ -24,25 +23,21 @@
         <ion-col col-6>
           <img [src]="musique.data.image" [alt]="musique.data.album">
         </ion-col>
-        <ion-col col-6>
+        <ion-col co-6>
           <strong>Album :</strong> <br>
           {{musique.data.album}} <br>
           <strong>Artiste :</strong><br>
           {{musique.data.artiste}} <br>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
           <strong>Nombre de musique :</strong> <br>
           {{musique.data.nb_musique}} <br>
           <strong>Nombre de vente :</strong> <br>
           {{musique.data.nb_vente}} <br>
           <strong>Style :</strong> <br>
           {{musique.data.style}} <br>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <strong>Résumé :</strong>
-          <p class="text-justify">
-            testtesttest
-          </p>
         </ion-col>
       </ion-row>
     </ion-grid>
